@@ -1,5 +1,7 @@
 import {ChangeEvent, useState, KeyboardEvent} from 'react';
 import {FilterValuesType, TasksType} from './App';
+import {Button} from "./components/Button.tsx";
+
 
 type PropsType = {
     id: number
@@ -31,11 +33,9 @@ export function Todolist(props: PropsType) {
 
     return <div>
         <h3> {props.title}
-            <button onClick={() => {
-                'removeTodolist'
-            }}>x
-            </button>
-
+            <Button title={'X'} onClick={() => {
+                props.removeTodolist(props.id);
+            }} id={props.id} />
         </h3>
         <div>
             <input value={title}
@@ -43,7 +43,8 @@ export function Todolist(props: PropsType) {
                    onKeyPress={onKeyPressHandler}
                    className={error ? "error" : ""}
             />
-            <button onClick={() => {'addTask'}}>+</button>
+            {/*<button onClick={() => {'addTask'}}>+</button>*/}
+            <Button title={'x'} onClick={() => {}} id={props.id} />
             {error && <div className="error-message">{error}</div>}
 
         </div>

@@ -1,13 +1,12 @@
 
 type ButtonType = {
     title: string
-    onClick: (id: number) => void
-    id: number
+    onClick: () => void
 }
 
-export const Button = ({title, onClick, id}: ButtonType) => {
+export const Button = ({title, onClick}: ButtonType) => {
     const onClickHandler = () => {
-        onClick(id)
+        onClick()
     }
 
     return <button onClick={onClickHandler}>{title}</button>
